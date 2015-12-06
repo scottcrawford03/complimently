@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: permitted_params[:username])
     if user && user.authenticate(permitted_params[:password])
       session[:user_id] = user.id
-      redirect_to root_url
+      redirect_to user_compliments_path
     else
       redirect_to root_url
     end

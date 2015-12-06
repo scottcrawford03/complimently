@@ -2,7 +2,8 @@
 <h2>Currently Invite Only</h2>
 
 <% if current_user %>
-  <h1>THIS IS THE BEST</h1>
+  <h1>You're Already Logged In.</h1>
+  <%= link_to 'Check out your compliments', user_compliments_path %>
 <% else %>
   <%= form_for :login, url: session_path do |f| %>
     <%= f.text_field :username, placeholder: 'username'%><br>

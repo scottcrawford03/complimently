@@ -1,0 +1,4 @@
+<h1><%= "#{current_user.full_name}'s Compliments" %></h1>
+<% @compliments.each do |compliment| %>
+  <%= "#{current_user.partner.full_name} says: #{compliment.compliment}" %>
+<% end %>

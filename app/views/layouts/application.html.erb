@@ -2,9 +2,18 @@
 <html>
 <head>
   <title>Complimently</title>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <div class="flash-messages">
+    <% flash.each do |name, messages| %>
+      <% Array(messages).each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    <% end %>
+  </div>
 
 <%= yield %>
 

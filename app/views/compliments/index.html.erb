@@ -1,4 +1,15 @@
 <h1><%= "#{current_user.full_name}'s Compliments" %></h1>
+<%= form_for :compliment, url: user_compliments_path do |f| %>
+  <%= f.text_field :compliment, placeholder: 'new compliment'%>
+  <%= f.submit "Send compliment to #{current_user.partner.full_name}" %>
+<% end %>
+<h2>Your Compliments</h2>
 <% @compliments.each do |compliment| %>
-  <%= "#{current_user.partner.full_name} says: #{compliment.compliment}" %>
+  <%= "#{current_user.partner.full_name} says: #{compliment.compliment}" %><br>
+<% end %>
+
+<h2>Compliments You've Sent</h2>
+<% current_user.partner.compliments.each do |compliment| %>
+  <%= compliment.compliment  %>
+  <%= button_to "Delete Compliment", user_compliment_path(compliment), method: :delete %>
 <% end %>

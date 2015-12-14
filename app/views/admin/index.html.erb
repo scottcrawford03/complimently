@@ -1,0 +1,13 @@
+<h1><%= "#{current_user.full_name}'s Admin Page" %></h1>
+<%= link_to "Back to your compliments", user_compliments_path %>
+<h2>Send a new Compliment</h2>
+<%= form_for :compliment, url: user_compliments_path do |f| %>
+  <%= f.text_field :compliment, placeholder: 'new compliment'%>
+  <%= f.submit "Send compliment to #{current_user.partner.full_name}" %>
+<% end %>
+
+<h2>Compliments You've Sent</h2>
+<% current_user.partner.compliments.each do |compliment| %>
+  <%= compliment.compliment  %>
+  <%= button_to "Delete Compliment", user_compliment_path(compliment), method: :delete %>
+<% end %>

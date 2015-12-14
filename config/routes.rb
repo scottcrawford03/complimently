@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resource :user, only: [] do
     resources :compliments, only: [:index, :create, :destroy]
+    resources :admin, only: [:index]
   end
 
   match "*path" => redirect("/"), via: :get

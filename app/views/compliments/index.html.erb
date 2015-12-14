@@ -1,6 +1,9 @@
-<h1><%= "#{current_user.full_name}'s Compliments" %></h1>
 <%= link_to "Go to your admin", user_admin_index_path %>
-<h2>Your Compliments</h2>
-<% @compliments.each do |compliment| %>
-  <%= "#{current_user.partner.full_name} says: #{compliment.compliment}" %><br>
+<h1><%= "#{current_user.full_name}'s Compliments" %></h1>
+<% if current_user.partner %>
+  <h2> <%= "#{current_user.partner.full_name} says:" %></h2>
+  <div class="user_compliments">Click the button to get your compliments!</div>
+  <button name='button' class='compliment_fetcher' type="button">Get Your Next Compliment!</button>
+<% else %>
+  <h2>You don't have a partner. Add one!</h2>
 <% end %>

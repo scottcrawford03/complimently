@@ -12,7 +12,7 @@ class ComplimentsController < ApplicationController
         user_id: current_user.partner.id
       )
       flash[:success] = 'Compliment created!'
-      redirect_to user_compliments_path
+      redirect_to user_admin_index_path
     else
       redirect_to user_compliments_path
     end

@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     resources :admin, only: [:index]
   end
 
+  namespace :api do
+    resources :compliments, only: [:index]
+  end
+
   match "*path" => redirect("/"), via: :get
 end

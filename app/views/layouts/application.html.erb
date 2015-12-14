@@ -14,7 +14,9 @@
       <% end %>
     <% end %>
   </div>
-
+<% if current_user %>
+  <%= link_to "logout", session_path, method: :delete %>
+<% end %>
 <%= yield %>
 
 </body>
